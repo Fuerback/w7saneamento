@@ -90,8 +90,9 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
             {supplier.pdfs.map((pdf) => (
               <li key={pdf}>
                 <a
-                  href={`/files/${supplier.name}/${encodeURIComponent(pdf)}`}
-                  download={pdf}
+                  href={`https://pub-8b048410db364e08a99484df0d21fd61.r2.dev/${supplier.name}/${encodeURIComponent(pdf)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-gray-700 hover:text-[#0D3280] group transition-colors"
                 >
                   <span className="flex-shrink-0 w-8 h-8 bg-[#0D3280]/10 group-hover:bg-[#0D3280]/20 rounded-lg flex items-center justify-center transition-colors">
