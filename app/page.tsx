@@ -121,7 +121,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           <button onClick={() => setActiveTab("inicio")} className="flex items-center">
             <Image
-              src="/files/LOGO W 7.png"
+              src="/files/logo-w7.png"
               alt="W7 Saneamento"
               width={120}
               height={48}
@@ -161,7 +161,7 @@ export default function Home() {
           <section className="bg-[#0D3280] text-white py-20 px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Image
-                src="/files/LOGO W 7.png"
+                src="/files/logo-w7.png"
                 alt="W7 Saneamento"
                 width={180}
                 height={72}
