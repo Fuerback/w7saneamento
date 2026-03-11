@@ -112,7 +112,7 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
 }
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"inicio" | "downloads">("inicio");
+  const [activeTab, setActiveTab] = useState<"inicio" | "catalogos">("inicio");
 
   return (
     <div className="min-h-screen bg-[#F4F7FC]">
@@ -121,12 +121,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           <button onClick={() => setActiveTab("inicio")} className="flex items-center">
             <Image
-              src="/files/logo-w7.png"
+              src="/files/logo-blue.png"
               alt="W7 Saneamento"
-              width={120}
-              height={48}
+              width={200}
+              height={90}
               priority
-              className="object-contain h-12 w-auto"
+              className="object-contain h-22 w-auto"
             />
           </button>
           <div className="flex gap-1">
@@ -141,14 +141,14 @@ export default function Home() {
               Início
             </button>
             <button
-              onClick={() => setActiveTab("downloads")}
+              onClick={() => setActiveTab("catalogos")}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab === "downloads"
+                activeTab === "catalogos"
                   ? "bg-[#0D3280] text-white"
                   : "text-[#0D3280] hover:bg-[#0D3280]/10"
               }`}
             >
-              Downloads
+              Catálogos
             </button>
           </div>
         </div>
@@ -161,10 +161,10 @@ export default function Home() {
           <section className="bg-[#0D3280] text-white py-20 px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Image
-                src="/files/logo-w7.png"
+                src="/files/logo-white.png"
                 alt="W7 Saneamento"
-                width={180}
-                height={72}
+                width={320}
+                height={150}
                 priority
                 className="mx-auto mb-8 object-contain"
               />
@@ -175,7 +175,7 @@ export default function Home() {
                 Distribuidor autorizado de tubos, conexões e sistemas para redes de abastecimento e saneamento básico.
               </p>
               <button
-                onClick={() => setActiveTab("downloads")}
+                onClick={() => setActiveTab("catalogos")}
                 className="mt-8 inline-block bg-white text-[#0D3280] font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition-colors"
               >
                 Ver catálogos
@@ -239,8 +239,8 @@ export default function Home() {
         </main>
       )}
 
-      {/* Downloads Section */}
-      {activeTab === "downloads" && (
+      {/* Catálogos Section */}
+      {activeTab === "catalogos" && (
         <main className="py-12 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0D3280] mb-2">Catálogos e Fornecedores</h2>
