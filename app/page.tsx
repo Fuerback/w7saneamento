@@ -7,38 +7,38 @@ const suppliers = [
   {
     name: "ASPERBRAS",
     url: "https://www.asperbrastuboseconexoes.com.br/",
-    description: "Tubos e conexões termoplásticos para saneamento e irrigação.",
+    description: "Soluções completas em PEAD e PVC — tubos, conexões e válvulas — para redes de abastecimento, esgotamento sanitário e Poços de Visita (PV) Rotomoldados.",
     pdfs: [
-      "catalogo completo asperbras.pdf",
-      "catalogo saneamento rotomoldagem.pdf",
-      "CATÁLAGO_PEAD.pdf",
-      "ASPERBRAS - Lâmina Linha Keeper.pdf",
-      "catalogo saneamento tubos.pdf",
-      "CATALOGO ASPERBRAS PREDIAL.pdf",
-      "ASPERBRAS - Lâmina Serve Festa.pdf",
-      "Apresentação Linha Keeper ASPERBRAS 2025.pdf",
+      { file: "catalogo completo asperbras.pdf", label: "Catálogo Completo" },
+      { file: "catalogo saneamento rotomoldagem.pdf", label: "Saneamento Rotomoldagem" },
+      { file: "CATÁLAGO_PEAD.pdf", label: "PEAD" },
+      { file: "ASPERBRAS - Lâmina Linha Keeper.pdf", label: "Lâmina Linha Keeper" },
+      { file: "catalogo saneamento tubos.pdf", label: "Saneamento Tubos" },
+      { file: "CATALOGO ASPERBRAS PREDIAL.pdf", label: "Predial" },
+      { file: "ASPERBRAS - Lâmina Serve Festa.pdf", label: "Lâmina Serve Festa" },
+      { file: "Apresentação Linha Keeper ASPERBRAS 2025.pdf", label: "Linha Keeper" },
     ],
   },
   {
     name: "CIMFLEX",
     url: "https://www.cimflex.com.br/",
-    description: "Soluções em tubos e conexões para drenagem e saneamento.",
+    description: "Especialista em PEAD Corrugado, atendendo setores de saneamento, drenagem, mineração, energia, telecomunicações e indústria.",
     pdfs: [
-      "catalogo_Tuboseconexões_2025-2.pdf_compressed.pdf",
-      "catalogo_atualizado_Ecodren_2025-1.pdf_compressed (1).pdf",
-      "catalogo_ecosan_atual_2025-1.pdf_compressed.pdf",
-      "catalogo_dutos_eletrodutos_atualizado_2025-.pdf",
+      { file: "catalogo_Tuboseconexões_2025-2.pdf_compressed.pdf", label: "Tubos e Conexões" },
+      { file: "catalogo_atualizado_Ecodren_2025-1.pdf_compressed (1).pdf", label: "Ecodren" },
+      { file: "catalogo_ecosan_atual_2025-1.pdf_compressed.pdf", label: "Ecosan" },
+      { file: "catalogo_dutos_eletrodutos_atualizado_2025-.pdf", label: "Dutos e Eletrodutos 2025" },
     ],
   },
   {
     name: "R2SAN",
     url: "https://www.r2san.com.br/",
-    description: "Tubos, conexões e válvulas em PEAD para redes de distribuição.",
+    description: "Uma das maiores importadoras do Brasil, fornecendo tubos e válvulas em Ferro Fundido com alta durabilidade.",
     pdfs: [
-      "Catálogo R2 San - PEAD Compressão_251028_144107.pdf",
-      "Catálogo R2 San - PEAD Eletro e Termofusão_251028_144142.pdf",
-      "Catálogo R2 San - Válvulas - 2024_251028_143954.pdf",
-      "Catálogo R2 San - Tubos - 2024_251028_144031.pdf",
+      { file: "Catálogo R2 San - PEAD Compressão_251028_144107.pdf", label: "PEAD Compressão" },
+      { file: "Catálogo R2 San - PEAD Eletro e Termofusão_251028_144142.pdf", label: "PEAD Eletro e Termofusão" },
+      { file: "Catálogo R2 San - Válvulas - 2024_251028_143954.pdf", label: "Válvulas" },
+      { file: "Catálogo R2 San - Tubos - 2024_251028_144031.pdf", label: "Tubos" },
     ],
   },
 ];
@@ -87,10 +87,10 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
       {open && (
         <div className="border-t border-gray-100 bg-gray-50 p-4">
           <ul className="space-y-2">
-            {supplier.pdfs.map((pdf) => (
-              <li key={pdf}>
+            {supplier.pdfs.map((entry) => (
+              <li key={entry.file}>
                 <a
-                  href={`https://pub-8b048410db364e08a99484df0d21fd61.r2.dev/${supplier.name}/${encodeURIComponent(pdf)}`}
+                  href={`https://pub-8b048410db364e08a99484df0d21fd61.r2.dev/${supplier.name}/${encodeURIComponent(entry.file)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-gray-700 hover:text-[#0D3280] group transition-colors"
@@ -100,7 +100,7 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   </span>
-                  <span className="group-hover:underline">{formatPdfName(pdf)}</span>
+                  <span className="group-hover:underline">{entry.label ?? formatPdfName(entry.file)}</span>
                 </a>
               </li>
             ))}
@@ -132,21 +132,19 @@ export default function Home() {
           <div className="flex gap-1">
             <button
               onClick={() => setActiveTab("inicio")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab === "inicio"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "inicio"
                   ? "bg-[#0D3280] text-white"
                   : "text-[#0D3280] hover:bg-[#0D3280]/10"
-              }`}
+                }`}
             >
               Início
             </button>
             <button
               onClick={() => setActiveTab("catalogos")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab === "catalogos"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "catalogos"
                   ? "bg-[#0D3280] text-white"
                   : "text-[#0D3280] hover:bg-[#0D3280]/10"
-              }`}
+                }`}
             >
               Catálogos
             </button>
@@ -158,22 +156,19 @@ export default function Home() {
       {activeTab === "inicio" && (
         <main>
           {/* Hero */}
-          <section className="bg-[#0D3280] text-white py-20 px-4">
+          <section className="bg-[#0D3280] text-white py-10 px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Image
                 src="/files/logo-white.png"
                 alt="W7 Saneamento"
-                width={320}
-                height={150}
+                width={240}
+                height={110}
                 priority
-                className="mx-auto mb-8 object-contain"
+                className="mx-auto mb-3 object-contain"
               />
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
-                Soluções completas em saneamento
+              <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
+                Experiência que Gera Confiança
               </h1>
-              <p className="text-lg sm:text-xl text-blue-200 max-w-2xl mx-auto">
-                Distribuidor autorizado de tubos, conexões e sistemas para redes de abastecimento e saneamento básico.
-              </p>
               <button
                 onClick={() => setActiveTab("catalogos")}
                 className="mt-8 inline-block bg-white text-[#0D3280] font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition-colors"
@@ -189,13 +184,62 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Quem somos</h2>
               <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed space-y-4 text-lg">
                 <p>
-                  A <strong className="text-[#0D3280]">W7 Saneamento</strong> é uma empresa especializada na distribuição de materiais para saneamento básico, atendendo construtoras, prefeituras, empresas de saneamento e profissionais da área em todo o Brasil.
+                  A <strong className="text-[#0D3280]">W7 Saneamento</strong> nasceu de <strong className="text-[#0D3280]">15 anos de expertise em infraestrutura de saneamento</strong>, com uma trajetória consolidada no topo do mercado mundial de PVC. Ao longo dessa jornada, construímos um histórico de excelência atendendo aos mais exigentes clientes do Brasil — como <strong className="text-[#0D3280]">Sanepar</strong>, <strong className="text-[#0D3280]">Casan</strong>, <strong className="text-[#0D3280]">Águas de Joinville</strong> e diversos <strong className="text-[#0D3280]">Samaes</strong> em Santa Catarina e no Paraná —, além de grandes empreiteiras e revendas nacionais.
                 </p>
                 <p>
-                  Trabalhamos com marcas líderes do mercado — ASPERBRAS, CIMFLEX e R2SAN — oferecendo tubos, conexões, válvulas e sistemas completos em PEAD, PVC e outros materiais de alta performance para redes de abastecimento de água, esgotamento sanitário e drenagem pluvial.
+                  Somos especialistas na distribuição de materiais para saneamento básico, atuando como parceiros estratégicos de construtoras, empreiteiras, prefeituras, companhias de saneamento e profissionais especializados em todo o território brasileiro.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Nosso Portfólio */}
+          <section className="py-16 px-4 bg-white">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-[#0D3280] mb-8 text-center">Nosso Portfólio</h2>
+              <p className="text-gray-500 text-center mb-10">Trabalhamos exclusivamente com fabricantes líderes para garantir a máxima performance em cada obra.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="bg-[#F4F7FC] rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-[#0D3280] mb-3">ASPERBRAS</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">Soluções completas em <strong>PEAD</strong> e <strong>PVC</strong> — tubos, conexões e válvulas — para redes de abastecimento, esgotamento sanitário e Poços de Visita (PV) Rotomoldados.</p>
+                </div>
+                <div className="bg-[#F4F7FC] rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-[#0D3280] mb-3">CIMFLEX</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">Especialista em <strong>PEAD Corrugado</strong>, atendendo setores de saneamento, drenagem, mineração, energia, telecomunicações e indústria.</p>
+                </div>
+                <div className="bg-[#F4F7FC] rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-[#0D3280] mb-3">R2SAN</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">Uma das maiores importadoras do Brasil, fornecendo <strong>tubos e válvulas em Ferro Fundido</strong> com alta durabilidade.</p>
+                </div>
+              </div>
+              <div className="text-center mt-10">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-block bg-[#0D3280] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#081F55] transition-colors"
+                >
+                  Ver catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Nosso Compromisso */}
+          <section className="py-16 px-4 bg-[#0D3280] text-white">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-6">Nosso Compromisso</h2>
+              <p className="text-lg sm:text-xl text-blue-200 leading-relaxed max-w-3xl mx-auto">
+                Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado — de quem conhece o canteiro de obra e as necessidades do campo.
+              </p>
+            </div>
+          </section>
+
+          {/* Nossa Missão */}
+          <section className="py-16 px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Nossa Missão</h2>
+              <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed text-lg text-center">
                 <p>
-                  Nossa missão é garantir que cada projeto tenha acesso a produtos de qualidade, com agilidade no atendimento e suporte técnico especializado.
+                  Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado — de quem conhece o canteiro de obra e as necessidades do campo.
                 </p>
               </div>
             </div>
@@ -231,7 +275,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="text-lg font-semibold text-[#0D3280] mb-2">Atendimento</h3>
-                  <p className="text-gray-500 text-sm">Equipe técnica dedicada para orientar na especificação e escolha dos melhores produtos para cada projeto.</p>
+                  <p className="text-gray-500 text-sm">Suporte técnico especializado de quem conhece o canteiro de obra — orientando na especificação e escolha dos produtos certos para cada projeto.</p>
                 </div>
               </div>
             </div>
