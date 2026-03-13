@@ -65,7 +65,7 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
             href={supplier.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -74,7 +74,7 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
           </a>
           <button
             onClick={() => setOpen(!open)}
-            className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
@@ -93,7 +93,7 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
                   href={`https://pub-8b048410db364e08a99484df0d21fd61.r2.dev/${supplier.name}/${encodeURIComponent(entry.file)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-gray-700 hover:text-[#0D3280] group transition-colors"
+                  className="flex items-center gap-3 text-sm text-gray-700 hover:text-[#0D3280] group transition-colors cursor-pointer"
                 >
                   <span className="flex-shrink-0 w-8 h-8 bg-[#0D3280]/10 group-hover:bg-[#0D3280]/20 rounded-lg flex items-center justify-center transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-[#0D3280]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,14 +112,14 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
 }
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"inicio" | "catalogos">("inicio");
+  const [activeTab, setActiveTab] = useState<"inicio" | "quem-somos" | "catalogos">("inicio");
 
   return (
     <div className="min-h-screen bg-[#F4F7FC]">
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white border-b border-[#0D3280]/20 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <button onClick={() => setActiveTab("inicio")} className="flex items-center">
+          <button onClick={() => setActiveTab("inicio")} className="flex items-center cursor-pointer">
             <Image
               src="/files/logo-blue.png"
               alt="W7 Saneamento"
@@ -132,18 +132,27 @@ export default function Home() {
           <div className="flex gap-1">
             <button
               onClick={() => setActiveTab("inicio")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "inicio"
-                  ? "bg-[#0D3280] text-white"
-                  : "text-[#0D3280] hover:bg-[#0D3280]/10"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "inicio"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
                 }`}
             >
               Início
             </button>
             <button
+              onClick={() => setActiveTab("quem-somos")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "quem-somos"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
+                }`}
+            >
+              Quem Somos
+            </button>
+            <button
               onClick={() => setActiveTab("catalogos")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === "catalogos"
-                  ? "bg-[#0D3280] text-white"
-                  : "text-[#0D3280] hover:bg-[#0D3280]/10"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "catalogos"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
                 }`}
             >
               Catálogos
@@ -169,26 +178,158 @@ export default function Home() {
               <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
                 Experiência que Gera Confiança
               </h1>
-              <button
-                onClick={() => setActiveTab("catalogos")}
-                className="mt-8 inline-block bg-white text-[#0D3280] font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition-colors"
-              >
-                Ver catálogos
-              </button>
+              <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
+                <button
+                  onClick={() => setActiveTab("quem-somos")}
+                  className="inline-block border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                >
+                  Quem Somos
+                </button>
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-block bg-white text-[#0D3280] font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition-colors cursor-pointer"
+                >
+                  Ver catálogos
+                </button>
+              </div>
             </div>
           </section>
 
-          {/* Quem somos */}
-          <section className="py-16 px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Quem somos</h2>
-              <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed space-y-4 text-lg">
-                <p>
-                  A <strong className="text-[#0D3280]">W7 Saneamento</strong> nasceu de <strong className="text-[#0D3280]">15 anos de expertise em infraestrutura de saneamento</strong>, com uma trajetória consolidada no topo do mercado mundial de PVC. Ao longo dessa jornada, construímos um histórico de excelência atendendo aos mais exigentes clientes do Brasil — como <strong className="text-[#0D3280]">Sanepar</strong>, <strong className="text-[#0D3280]">Casan</strong>, <strong className="text-[#0D3280]">Águas de Joinville</strong> e diversos <strong className="text-[#0D3280]">Samaes</strong> em Santa Catarina e no Paraná —, além de grandes empreiteiras e revendas nacionais.
-                </p>
-                <p>
-                  Somos especialistas na distribuição de materiais para saneamento básico, atuando como parceiros estratégicos de construtoras, empreiteiras, prefeituras, companhias de saneamento e profissionais especializados em todo o território brasileiro.
-                </p>
+          {/* Clientes */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <p className="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8">Empresas que confiam na W7 Saneamento</p>
+              <div className="flex flex-wrap items-center justify-center gap-10">
+                <Image src="/files/clientes/bhatel.jpg" alt="Bhatel" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+                <Image src="/files/clientes/Gomes.jpeg" alt="Gomes" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+                <Image src="/files/clientes/hidroluna.jpg" alt="Hidroluna" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+                <Image src="/files/clientes/hidrotel.jpg" alt="Hidrotel" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+                <Image src="/files/clientes/viadagua.jpg" alt="Via d'Água" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+              </div>
+            </div>
+          </section>
+
+          {/* ARPEBRAS - TUBOS E CONEXOES */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/INFRA.png" alt="Tabela de Infraestrutura" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1XJEBC6zKNPgV8J8A8ivIp7uDM8Y9u3G4/edit?gid=968244646#gid=968244646"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Tubos
+                </a>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1q9pAQdRwDdGRx7e1VjWOvdXDiQ6DLVRC/edit?gid=56373896#gid=56373896"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Conexões
+                </a>
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* ASSEBRAS - PEAD */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/PEAD.png" alt="PEAD" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* PV */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/PV.png" alt="PV" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Ferro Fundido */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/FERROFUNDIDO.png" alt="Ferro Fundido" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1r25RLZjA0SAUYZWZXexUPqSCzI6KAZHp/edit?gid=171716005#gid=171716005"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Válvulas
+                </a>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/144zELHkt19HCjvWmFdGcJS6yz1py--j4/edit?gid=1277210385#gid=1277210385"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Tubos
+                </a>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1SXOqC_1dXOFlPsIyFeH6_7l18rZx4px9/edit?gid=1626313609#gid=1626313609"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Conexões
+                </a>
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Drenagem */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/DRENAGEM.png" alt="Drenagem" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
               </div>
             </div>
           </section>
@@ -215,7 +356,7 @@ export default function Home() {
               <div className="text-center mt-10">
                 <button
                   onClick={() => setActiveTab("catalogos")}
-                  className="inline-block bg-[#0D3280] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#081F55] transition-colors"
+                  className="inline-block bg-[#0D3280] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#081F55] transition-colors cursor-pointer"
                 >
                   Ver catálogos
                 </button>
@@ -223,27 +364,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Nosso Compromisso */}
-          <section className="py-16 px-4 bg-[#0D3280] text-white">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">Nosso Compromisso</h2>
-              <p className="text-lg sm:text-xl text-blue-200 leading-relaxed max-w-3xl mx-auto">
-                Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado — de quem conhece o canteiro de obra e as necessidades do campo.
-              </p>
-            </div>
-          </section>
-
-          {/* Nossa Missão */}
-          <section className="py-16 px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Nossa Missão</h2>
-              <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed text-lg text-center">
-                <p>
-                  Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado — de quem conhece o canteiro de obra e as necessidades do campo.
-                </p>
-              </div>
-            </div>
-          </section>
 
           {/* Como funcionamos */}
           <section className="py-16 px-4 bg-white">
@@ -280,6 +400,39 @@ export default function Home() {
               </div>
             </div>
           </section>
+        </main>
+      )}
+
+      {/* Quem Somos Section */}
+      {activeTab === "quem-somos" && (
+        <main className="py-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Quem Somos</h2>
+            <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed space-y-4 text-lg">
+              <p>
+                A <strong className="text-[#0D3280]">W7 Saneamento</strong> nasceu de <strong className="text-[#0D3280]">15 anos de expertise em infraestrutura de saneamento</strong>, com uma trajetória consolidada no topo do mercado mundial de PVC. Ao longo dessa jornada, construímos um histórico de excelência atendendo aos mais exigentes clientes do Brasil — como <strong className="text-[#0D3280]">Sanepar</strong>, <strong className="text-[#0D3280]">Casan</strong>, <strong className="text-[#0D3280]">Águas de Joinville</strong> e diversos <strong className="text-[#0D3280]">Samaes</strong> em Santa Catarina e no Paraná —, além de grandes empreiteiras e revendas nacionais.
+              </p>
+              <p>
+                Somos especialistas na distribuição de materiais para saneamento básico, atuando como parceiros estratégicos de construtoras, empreiteiras, prefeituras, companhias de saneamento e profissionais especializados em todo o território brasileiro.
+              </p>
+            </div>
+
+            <section className="mt-10 bg-[#0D3280] text-white rounded-2xl py-12 px-8 text-center">
+              <h2 className="text-3xl font-bold mb-6">Nosso Compromisso</h2>
+              <p className="text-lg sm:text-xl text-blue-200 leading-relaxed max-w-3xl mx-auto">
+                Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado — de quem conhece o canteiro de obra e as necessidades do campo.
+              </p>
+            </section>
+
+            <section className="mt-10">
+              <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Nossa Missão</h2>
+              <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed text-lg text-center">
+                <p>
+                  Nossa missão é impulsionar o setor de saneamento através de um compromisso inegociável com a agilidade. Unimos produtos de alta performance ao suporte técnico de quem entende o campo, garantindo que cada demanda seja resolvida com o profissionalismo e a velocidade que a obra exige.
+                </p>
+              </div>
+            </section>
+          </div>
         </main>
       )}
 
