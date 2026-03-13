@@ -112,10 +112,10 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
 }
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"inicio" | "quem-somos" | "catalogos">("inicio");
+  const [activeTab, setActiveTab] = useState<"inicio" | "quem-somos" | "catalogos" | "contato">("inicio");
 
   return (
-    <div className="min-h-screen bg-[#F4F7FC]">
+    <div className="min-h-screen bg-[#F4F7FC] flex flex-col">
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white border-b border-[#0D3280]/20 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
@@ -157,6 +157,15 @@ export default function Home() {
             >
               Catálogos
             </button>
+            <button
+              onClick={() => setActiveTab("contato")}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "contato"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
+                }`}
+            >
+              Contato
+            </button>
           </div>
         </div>
       </nav>
@@ -190,6 +199,12 @@ export default function Home() {
                   className="inline-block bg-white text-[#0D3280] font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition-colors cursor-pointer"
                 >
                   Ver catálogos
+                </button>
+                <button
+                  onClick={() => setActiveTab("contato")}
+                  className="inline-block border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                >
+                  Contato
                 </button>
               </div>
             </div>
@@ -432,6 +447,44 @@ export default function Home() {
                 </p>
               </div>
             </section>
+          </div>
+        </main>
+      )}
+
+      {/* Contato Section */}
+      {activeTab === "contato" && (
+        <main className="py-12 px-4 flex-1">
+          <div className="max-w-xl mx-auto">
+            <h2 className="text-3xl font-bold text-[#0D3280] mb-8 text-center">Contato</h2>
+            <div className="bg-white rounded-2xl shadow-md p-8 space-y-6">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Nome</p>
+                <p className="text-lg font-medium text-gray-800">Wilson Neves Filho</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">E-mail</p>
+                <a
+                  href="mailto:comercial@w7saneamento.com.br"
+                  className="text-lg font-medium text-[#0D3280] hover:underline cursor-pointer"
+                >
+                  comercial@w7saneamento.com.br
+                </a>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">WhatsApp</p>
+                <a
+                  href="https://wa.me/5548992250207"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 text-lg font-medium text-gray-800 hover:text-[#25D366] transition-colors cursor-pointer"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-6 h-6 fill-[#25D366]">
+                    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.677 4.797 1.852 6.786L2 30l7.407-1.82A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 01-5.885-1.608l-.422-.25-4.397 1.08 1.112-4.277-.274-.44A11.56 11.56 0 014.4 16C4.4 9.592 9.592 4.4 16 4.4S27.6 9.592 27.6 16 22.408 27.6 16 27.6zm6.344-8.656c-.348-.174-2.058-1.014-2.378-1.13-.32-.116-.552-.174-.784.174-.232.348-.9 1.13-1.104 1.362-.203.232-.406.26-.754.086-.348-.174-1.47-.542-2.8-1.726-1.034-.922-1.732-2.06-1.935-2.408-.203-.348-.022-.536.153-.71.157-.155.348-.406.522-.61.174-.203.232-.348.348-.58.116-.232.058-.436-.029-.61-.087-.174-.784-1.89-1.074-2.588-.283-.68-.57-.587-.784-.598l-.668-.012c-.232 0-.61.087-.928.436-.318.348-1.218 1.19-1.218 2.9s1.247 3.363 1.42 3.596c.174.232 2.455 3.748 5.95 5.253.832.36 1.48.574 1.986.735.834.266 1.594.228 2.194.138.669-.1 2.058-.842 2.348-1.655.29-.814.29-1.512.203-1.655-.087-.145-.319-.232-.667-.406z" />
+                  </svg>
+                  +55 48 99225-0207
+                </a>
+              </div>
+            </div>
           </div>
         </main>
       )}
