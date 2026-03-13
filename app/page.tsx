@@ -209,7 +209,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Fornecedores */}
+          {/* ARPEBRAS - TUBOS E CONEXOES */}
           <section className="py-12 px-4 bg-white">
             <div className="max-w-5xl mx-auto">
               <div className="flex justify-center mb-6">
@@ -232,6 +232,98 @@ export default function Home() {
                 >
                   Listagem Conexões
                 </a>
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* ASSEBRAS - PEAD */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/PEAD.png" alt="PEAD" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* PV */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/PV.png" alt="PV" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Ferro Fundido */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/FERROFUNDIDO.png" alt="Ferro Fundido" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1r25RLZjA0SAUYZWZXexUPqSCzI6KAZHp/edit?gid=171716005#gid=171716005"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Válvulas
+                </a>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/144zELHkt19HCjvWmFdGcJS6yz1py--j4/edit?gid=1277210385#gid=1277210385"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Tubos
+                </a>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1SXOqC_1dXOFlPsIyFeH6_7l18rZx4px9/edit?gid=1626313609#gid=1626313609"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0D3280] hover:bg-[#081F55] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Listagem Conexões
+                </a>
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Drenagem */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image src="/files/DRENAGEM.png" alt="Drenagem" width={800} height={400} className="rounded-2xl shadow-md object-contain w-full max-w-3xl" />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
                 <button
                   onClick={() => setActiveTab("catalogos")}
                   className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
