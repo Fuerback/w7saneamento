@@ -12,9 +12,51 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://www.w7saneamento.com.br";
+
 export const metadata: Metadata = {
-  title: "W7 Saneamento",
-  description: "W7 Saneamento - Distribuidor de tubos, conexões e sistemas de saneamento",
+  title: "W7 Saneamento | Distribuidor B2B de Materiais de Saneamento",
+  description:
+    "W7 Saneamento — distribuidor B2B de tubos e conexões de PEAD, PVC, ferro fundido, sistemas de drenagem e saneamento. Atendemos empresas em Santa Catarina e em todo o Brasil. Solicite cotação via WhatsApp.",
+  keywords: [
+    "saneamento",
+    "tubos PEAD",
+    "tubos PVC",
+    "tubos ferro fundido",
+    "esgoto",
+    "adução de água",
+    "conexões PVC",
+    "ferro fundido",
+    "drenagem",
+    "distribuidor saneamento",
+    "materiais saneamento",
+    "tubos e conexões",
+    "ASPERBRAS",
+    "CIMFLEX",
+    "R2SAN",
+    "Santa Catarina",
+    "Brasil",
+    "B2B saneamento",
+    "Infraestrutura",
+    "drenagem",
+    "conexões para saneamento",
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "W7 Saneamento | Distribuidor B2B de Materiais de Saneamento",
+    description:
+      "Distribuidor B2B de tubos e conexões de PEAD, PVC, ferro fundido e sistemas de drenagem. Santa Catarina e Brasil.",
+    url: SITE_URL,
+    siteName: "W7 Saneamento",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +71,27 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "W7 Saneamento",
+              url: SITE_URL,
+              telephone: "+554899225-0207",
+              email: "comercial@w7saneamento.com.br",
+              description:
+                "Distribuidor B2B de materiais de saneamento: tubos e conexões de PEAD, PVC, ferro fundido, sistemas de drenagem. Atendemos empresas em Santa Catarina e em todo o Brasil.",
+              areaServed: "BR",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+554899225-0207",
+                contactType: "sales",
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );
