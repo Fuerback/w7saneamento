@@ -474,7 +474,7 @@ export default function Home() {
 
       {/* Quem Somos Section */}
       {activeTab === "quem-somos" && (
-        <main className="py-12 px-4">
+        <main className="py-12 px-4 flex-1">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Quem Somos</h2>
             <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed space-y-4 text-lg">
@@ -545,7 +545,7 @@ export default function Home() {
 
       {/* Catálogos Section */}
       {activeTab === "catalogos" && (
-        <main className="py-12 px-4">
+        <main className="py-12 px-4 flex-1">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0D3280] mb-2">Catálogos e Fornecedores</h2>
             <p className="text-gray-500 mb-8">Acesse o site de cada fornecedor ou faça o download dos catálogos técnicos.</p>
