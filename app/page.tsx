@@ -7,7 +7,7 @@ const suppliers = [
   {
     name: "ASPERBRAS",
     url: "https://www.asperbrastuboseconexoes.com.br/",
-    description: "Soluções completas em PEAD e PVC — tubos, conexões e válvulas — para redes de abastecimento, esgotamento sanitário e Poços de Visita (PV) Rotomoldados.",
+    description: "Soluções completas em PEAD e PVC tubos, conexões e válvulas para redes de abastecimento, esgotamento sanitário e Poços de Visita (PV) Rotomoldados.",
     pdfs: [
       { file: "catalogo completo asperbras.pdf", label: "Catálogo Completo" },
       { file: "catalogo saneamento rotomoldagem.pdf", label: "Saneamento Rotomoldagem" },
@@ -111,11 +111,65 @@ function SupplierCard({ supplier }: { supplier: (typeof suppliers)[0] }) {
   );
 }
 
+const promoProducts = [
+  {
+    image: "/files/popup/RESERVATORIO-POLI.png",
+    alt: "Reservatório Poli",
+    pdf: "https://pub-8b048410db364e08a99484df0d21fd61.r2.dev/ASPERBRAS/ASPERBRAS%20-%20L%C3%A2mina%20Serve%20Festa.pdf",
+  },
+  {
+    image: "/files/popup/RESERVATORIO-KEEPER.png",
+    alt: "Reservatório Keeper",
+    pdf: "https://pub-8b048410db364e08a99484df0d21fd61.r2.dev/ASPERBRAS/ASPERBRAS%20-%20L%C3%A2mina%20Linha%20Keeper.pdf",
+  },
+];
+
+function PromoPopup({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={onClose}>
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6" onClick={(e) => e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          aria-label="Fechar"
+          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <h2 className="text-center text-[#0D3280] font-bold text-lg mb-1">Novidades ASPERBRAS</h2>
+        <p className="text-center text-gray-500 text-sm mb-5">Clique em um produto para ver o catálogo completo</p>
+        <div className="grid grid-cols-2 gap-4">
+          {promoProducts.map((product) => (
+            <a
+              key={product.alt}
+              href={product.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-xl overflow-hidden border border-gray-100 hover:border-[#0D3280]/40 shadow-sm hover:shadow-md transition-all cursor-pointer"
+            >
+              <Image
+                src={product.image}
+                alt={product.alt}
+                width={400}
+                height={300}
+                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-200"
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"inicio" | "quem-somos" | "catalogos" | "contato">("inicio");
+  const [showPopup, setShowPopup] = useState(true);
 
   return (
     <div className="min-h-screen bg-[#F4F7FC] flex flex-col">
+      {showPopup && <PromoPopup onClose={() => setShowPopup(false)} />}
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white border-b border-[#0D3280]/20 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
@@ -357,7 +411,7 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div className="bg-[#F4F7FC] rounded-2xl p-6">
                   <h3 className="text-xl font-bold text-[#0D3280] mb-3">ASPERBRAS</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">Soluções completas em <strong>PEAD</strong> e <strong>PVC</strong> — tubos, conexões e válvulas — para redes de abastecimento, esgotamento sanitário e Poços de Visita (PV) Rotomoldados.</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">Soluções completas em <strong>PEAD</strong> e <strong>PVC</strong> tubos, conexões e válvulas para redes de abastecimento, esgotamento sanitário e Poços de Visita (PV) Rotomoldados.</p>
                 </div>
                 <div className="bg-[#F4F7FC] rounded-2xl p-6">
                   <h3 className="text-xl font-bold text-[#0D3280] mb-3">CIMFLEX</h3>
@@ -410,7 +464,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="text-lg font-semibold text-[#0D3280] mb-2">Atendimento</h3>
-                  <p className="text-gray-500 text-sm">Suporte técnico especializado de quem conhece o canteiro de obra — orientando na especificação e escolha dos produtos certos para cada projeto.</p>
+                  <p className="text-gray-500 text-sm">Suporte técnico especializado de quem conhece o canteiro de obra, orientando na especificação e escolha dos produtos certos para cada projeto.</p>
                 </div>
               </div>
             </div>
@@ -425,7 +479,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-[#0D3280] mb-6 text-center">Quem Somos</h2>
             <div className="bg-white rounded-2xl shadow-sm p-8 text-gray-600 leading-relaxed space-y-4 text-lg">
               <p>
-                A <strong className="text-[#0D3280]">W7 Saneamento</strong> nasceu de <strong className="text-[#0D3280]">15 anos de expertise em infraestrutura de saneamento</strong>, com uma trajetória consolidada no topo do mercado mundial de PVC. Ao longo dessa jornada, construímos um histórico de excelência atendendo aos mais exigentes clientes do Brasil — como <strong className="text-[#0D3280]">Sanepar</strong>, <strong className="text-[#0D3280]">Casan</strong>, <strong className="text-[#0D3280]">Águas de Joinville</strong> e diversos <strong className="text-[#0D3280]">Samaes</strong> em Santa Catarina e no Paraná —, além de grandes empreiteiras e revendas nacionais.
+                A <strong className="text-[#0D3280]">W7 Saneamento</strong> nasceu de <strong className="text-[#0D3280]">15 anos de expertise em infraestrutura de saneamento</strong>, com uma trajetória consolidada no topo do mercado mundial de PVC. Ao longo dessa jornada, construímos um histórico de excelência atendendo aos mais exigentes clientes do Brasil, como <strong className="text-[#0D3280]">Sanepar</strong>, <strong className="text-[#0D3280]">Casan</strong>, <strong className="text-[#0D3280]">Águas de Joinville</strong> e diversos <strong className="text-[#0D3280]">Samaes</strong> em Santa Catarina e no Paraná, além de grandes empreiteiras e revendas nacionais.
               </p>
               <p>
                 Somos especialistas na distribuição de materiais para saneamento básico, atuando como parceiros estratégicos de construtoras, empreiteiras, prefeituras, companhias de saneamento e profissionais especializados em todo o território brasileiro.
@@ -435,7 +489,7 @@ export default function Home() {
             <section className="mt-10 bg-[#0D3280] text-white rounded-2xl py-12 px-8 text-center">
               <h2 className="text-3xl font-bold mb-6">Nosso Compromisso</h2>
               <p className="text-lg sm:text-xl text-blue-200 leading-relaxed max-w-3xl mx-auto">
-                Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado — de quem conhece o canteiro de obra e as necessidades do campo.
+                Nossa missão é viabilizar projetos de infraestrutura através do fornecimento de produtos de altíssima qualidade, unindo agilidade logística e suporte técnico especializado de quem conhece o canteiro de obra e as necessidades do campo.
               </p>
             </section>
 
