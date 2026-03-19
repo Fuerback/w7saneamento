@@ -301,41 +301,37 @@ export default function Home() {
           <div className="flex gap-1">
             <button
               onClick={() => setActiveTab("inicio")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                activeTab === "inicio"
-                  ? "bg-[#0D3280] text-white"
-                  : "text-[#0D3280] hover:bg-[#0D3280]/10"
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "inicio"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
+                }`}
             >
               Início
             </button>
             <button
               onClick={() => setActiveTab("quem-somos")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                activeTab === "quem-somos"
-                  ? "bg-[#0D3280] text-white"
-                  : "text-[#0D3280] hover:bg-[#0D3280]/10"
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "quem-somos"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
+                }`}
             >
               Quem Somos
             </button>
             <button
               onClick={() => setActiveTab("catalogos")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                activeTab === "catalogos"
-                  ? "bg-[#0D3280] text-white"
-                  : "text-[#0D3280] hover:bg-[#0D3280]/10"
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "catalogos"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
+                }`}
             >
               Catálogos
             </button>
             <button
               onClick={() => setActiveTab("contato")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                activeTab === "contato"
-                  ? "bg-[#0D3280] text-white"
-                  : "text-[#0D3280] hover:bg-[#0D3280]/10"
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${activeTab === "contato"
+                ? "bg-[#0D3280] text-white"
+                : "text-[#0D3280] hover:bg-[#0D3280]/10"
+                }`}
             >
               Contato
             </button>
@@ -584,6 +580,29 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Eletricidade */}
+          <section className="py-12 px-4 bg-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="/files/VIBRA.png"
+                  alt="Eletricidade"
+                  width={800}
+                  height={400}
+                  className="rounded-2xl shadow-md object-contain w-full max-w-3xl"
+                />
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setActiveTab("catalogos")}
+                  className="inline-flex items-center gap-2 border border-[#0D3280] text-[#0D3280] hover:bg-[#0D3280] hover:text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Catálogos
+                </button>
+              </div>
+            </div>
+          </section>
+
           {/* Nosso Portfólio */}
           <section className="py-16 px-4 bg-white">
             <div className="max-w-4xl mx-auto">
@@ -594,7 +613,7 @@ export default function Home() {
                 Trabalhamos exclusivamente com fabricantes líderes para garantir
                 a máxima performance em cada obra.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-[#F4F7FC] rounded-2xl p-6">
                   <h3 className="text-xl font-bold text-[#0D3280] mb-3">
                     ASPERBRAS
@@ -624,6 +643,20 @@ export default function Home() {
                     Uma das maiores importadoras do Brasil, fornecendo{" "}
                     <strong>tubos e válvulas em Ferro Fundido</strong> com alta
                     durabilidade.
+                  </p>
+                </div>
+                <div className="bg-[#F4F7FC] rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-[#0D3280] mb-3">
+                    VibraFios
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    A Vibra se destaca como uma referência na fabricação de fios
+                    e cabos de alta qualidade, sendo uma escolha confiável para
+                    atender às demandas exigentes da indústria elétrica.
+                    Comprometidos com os mais altos padrões, todos os nossos
+                    produtos possuem certificados de conformidade, garantindo
+                    que cada item atenda aos requisitos rigorosos de qualidade e
+                    segurança.
                   </p>
                 </div>
               </div>
