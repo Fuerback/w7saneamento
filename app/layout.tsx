@@ -50,10 +50,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/files/logo-blue.png', sizes: 'any', type: 'image/png' },
-      { url: '/files/logo-blue.png', sizes: '32x32', type: 'image/png' },
+      { url: "/files/logo-blue.png", sizes: "any", type: "image/png" },
+      { url: "/files/logo-blue.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: { url: '/files/logo-blue.png', sizes: '180x180', type: 'image/png' },
+    apple: { url: "/files/logo-blue.png", sizes: "180x180", type: "image/png" },
   },
   openGraph: {
     title: "W7 Saneamento | Distribuidor B2B de Materiais de Saneamento",
@@ -65,10 +65,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: '/files/logo-blue.png',
+        url: "/files/logo-blue.png",
         width: 400,
         height: 180,
-        alt: 'W7 Saneamento',
+        alt: "W7 Saneamento",
       },
     ],
   },

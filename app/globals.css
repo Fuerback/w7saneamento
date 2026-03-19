@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F4F7FC;
-  --foreground: #1A202C;
-  --primary: #0D3280;
-  --primary-dark: #081F55;
-  --primary-light: #1A4DB0;
+  --background: #f4f7fc;
+  --foreground: #1a202c;
+  --primary: #0d3280;
+  --primary-dark: #081f55;
+  --primary-light: #1a4db0;
 }
 
 @theme inline {
@@ -26,4 +26,18 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
 }
