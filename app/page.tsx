@@ -80,6 +80,17 @@ const suppliers = [
       },
     ],
   },
+  {
+    name: "VibraFios",
+    url: "https://vibrafios.com.br/",
+    description:
+      "A Vibra Fios e Cabos é uma fabricante nacional comprometida com a qualidade e inovação no setor de condutores elétricos.",
+    pdfs: [
+      { file: "Ebook Vibra Bitolas de Cabos.pdf", label: "Bitolas de Cabos" },
+      { file: "Ebook Vibra.pdf", label: "Ebook Vibra" },
+      { file: "Vibra Datasheet.pdf", label: "Datasheet" },
+    ],
+  },
 ];
 
 function formatPdfName(filename: string): string {
@@ -397,11 +408,13 @@ export default function Home() {
                     { src: "/files/clientes/Gomes.jpeg", alt: "Gomes" },
                     { src: "/files/clientes/hidroluna.jpg", alt: "Hidroluna" },
                     { src: "/files/clientes/viadagua.jpg", alt: "Via d'Água" },
+                    { src: "/files/clientes/VibraFios.png", alt: "Vibra Fios" },
                     { src: "/files/clientes/bhatel.jpg", alt: "Bhatel" },
                     { src: "/files/clientes/hidrotel.jpg", alt: "Hidrotel" },
                     { src: "/files/clientes/Gomes.jpeg", alt: "Gomes" },
                     { src: "/files/clientes/hidroluna.jpg", alt: "Hidroluna" },
                     { src: "/files/clientes/viadagua.jpg", alt: "Via d'Água" },
+                    { src: "/files/clientes/VibraFios.png", alt: "Vibra Fios" },
                   ].map((client, i) => (
                     <div key={i} className="mx-10 flex-shrink-0">
                       <Image
