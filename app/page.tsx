@@ -270,9 +270,9 @@ export default function Home() {
               <p className="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8">Empresas que confiam na W7 Saneamento</p>
               <div className="flex flex-wrap items-center justify-center gap-10">
                 <Image src="/files/clientes/bhatel.jpg" alt="Bhatel" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+                <Image src="/files/clientes/hidrotel.jpg" alt="Hidrotel" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
                 <Image src="/files/clientes/Gomes.jpeg" alt="Gomes" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
                 <Image src="/files/clientes/hidroluna.jpg" alt="Hidroluna" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
-                <Image src="/files/clientes/hidrotel.jpg" alt="Hidrotel" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
                 <Image src="/files/clientes/viadagua.jpg" alt="Via d'Água" width={120} height={60} className="object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
               </div>
             </div>
