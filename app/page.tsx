@@ -404,11 +404,13 @@ export default function Home() {
                     { src: "/files/clientes/Gomes.jpeg", alt: "Gomes" },
                     { src: "/files/clientes/hidroluna.jpg", alt: "Hidroluna" },
                     { src: "/files/clientes/viadagua.jpg", alt: "Via d'Água" },
+                    { src: "/files/clientes/ITAOCARA.png", alt: "Itaocara" },
                     { src: "/files/clientes/bhatel.jpg", alt: "Bhatel" },
                     { src: "/files/clientes/hidrotel.jpg", alt: "Hidrotel" },
                     { src: "/files/clientes/Gomes.jpeg", alt: "Gomes" },
                     { src: "/files/clientes/hidroluna.jpg", alt: "Hidroluna" },
                     { src: "/files/clientes/viadagua.jpg", alt: "Via d'Água" },
+                    { src: "/files/clientes/ITAOCARA.png", alt: "Itaocara" },
                   ].map((client, i) => (
                     <div key={i} className="mx-10 flex-shrink-0">
                       <Image
